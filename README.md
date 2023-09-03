@@ -3,6 +3,7 @@
 Webpage for "Robust Human Motion Forecasting using Transformer-based Model
 "
 - Esteve Valls Mascaro
+- Shuo Ma
 - Hyemin Ahn
 - Dongheui Lee
 
