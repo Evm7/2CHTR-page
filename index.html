@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="Robust Human Motion Forecasting using Transformer-based Model"/>
+  <meta property="og:url" content="https://evm7.github.io/HOIGaze-page/"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>Robust Human Motion Forecasting using Transformer-based Model</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/icon2.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Robust Human Motion Forecasting using Transformer-based Model</h1>
+          <div class="is-size-3 publication-authors">
+          IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2022
+          </div>
+        </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://evm7.github.io/" target="_blank">Esteve Valls Mascaro</a>,</span>
+            <span class="author-block"><a href="https://www.tuwien.at/etit/ict/asl/team/daniel-sliwowski" target="_blank">Hyemin Ahn</a>,</span>
+            <span class="author-block"><a href="https://www.tuwien.at/etit/ict/asl/team/dongheui-lee" target="_blank">Dongheui Lee</a>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Technische Universit ̈at Wien (TUWien), UNIST, DLR</span> 
+            <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+          </div>
+          
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2302.08274" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiV</span>
+                </a>
+              </span>
+
+              
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://ieeexplore.ieee.org/document/9981877" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+
+
+<!--              <span class="link-block">-->
+<!--                <a href="ADD HERE REPLICATE IF NEEDED" target="_blank"-->
+<!--                class="external-link button is-normal is-rounded">-->
+<!--                <span class="icon">-->
+<!--                  <i class="fas fa-rocket"></i>-->
+<!--                </span>-->
+<!--                <span>Demo</span>-->
+<!--              </a>-->
+<!--              </span>-->
+              <!-- </span> -->
+              <!-- Colab Link. -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <!~~ <div class="hero-body"> ~~>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!~~ <div id="results-carousel" class="carousel results-carousel"> ~~>
+      <div class="container">
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/Motivation.jpg" alt="2CHTR"/>
+      </div>
+
+    </div>
+  </div>
+ <!~~  </div> ~~>
+  </div>
+  </div>
+ <!~~  </div> ~~>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+          <p style="margin-bottom: 30px">
+ 
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/IROS22.mp4"
+          type="video/mp4">
+        </video>
+<!-- 
+        <iframe width="720" height="405" src=VIDEOLINK TO YOUTUBE IF THERE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
+        </p>
+        </div>
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           Comprehending human motion is a fundamental challenge for developing Human-Robot Collaborative applications. Computer vision researchers have addressed this field by only focusing on reducing error in predictions, but not taking into account the requirements to facilitate its implementation in robots. In this paper, we propose a new model based on Transformer that simultaneously deals with the real time 3D human motion forecasting in the short and long term. Our 2-Channel Transformer (2CH-TR) is able to efficiently exploit the spatio-temporal information of a shortly observed sequence (400ms) and generates a competitive accuracy against the current state-of-the-art. 2CH-TR stands out for the efficient performance of the Transformer, being lighter and faster than its competitors. In addition, our model is tested in conditions where the human motion is severely occluded, demonstrating its robustness in reconstructing and predicting 3D human motion in a highly noisy environment. Our experiment results show that the proposed 2CH-TR outperforms the ST-Transformer, which is another state-of-the-art model based on the Transformer, in terms of reconstruction and prediction under the same conditions of input prefix. Our model reduces in 8.89% the mean squared error of ST-Transformer in short-term prediction, and 2.57% in long-term prediction in Human3.6M dataset with 400ms input prefix.
+</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/Architecture.png" alt="Architecture of our HOIGaze model"/>
+      </div>    
+  </div>
+</div>
+</div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+         <h2 class="title is-3">How does it work?</h2> 
+        <div class="content has-text-justified">
+          <p>
+The observed skeleton motion sequence X is projected independently for each channel into an embedding space (ES and ET ) and then positional encoding is injected. Each embedding is fed into L stacked attention layers that extracts dependencies between the sequence using multi-head attention. Finally, each embedding (EˆS and EˆT ) is decoded and projected back to skeleton sequences. Future poses (Xˆpred) are then the result of summing the output of each channel (XˆS and XˆT ) with the residual connection X from input to output.
+</p>
+        <div class="columns is-centered has-text-centered">
+            <div class="item">
+          <p style="margin-bottom: 30px">
+<!--
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/page.mp4"
+          type="video/mp4">
+        </video>
+ --><br><br>
+        </p>
+        </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+            <div class="column is-four-fifths">
+         	<h2 class="title is-3">Qualitative Results</h2> 
+ 	</div>  
+         <div class="columns is-centered has-text-centered">
+             <	p><b> “Human Pose Estimation and Forecasting in the wild”</b></p>
+                <div class="column">
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/qualitative_video.gif" alt=" Taking Photo" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/qualitative_prediction.gif" alt=" Taking Photo" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+            </div>
+      </div>    
+  </div>
+</div>
+</div>
+</section>
+
+  <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Human Motion Forecasting</h2>
+          <p>
+            In this task, the aim is to predict future human motion based on past observations in the Human3.6M dataset. Our model is able to obtain competitive results while being more robust and efficient, ideal for its implementation in robotic applications.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+ <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            
+        <div class="carousel-item">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <p><b> “Ground-Truth: Eating”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/Eating_gt.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <p><b> “Prediction: Eating”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/Eating_pred.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-item">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <p><b> “Ground-Truth: Phoning”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/Phoning_gt.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <p><b> “Prediction: Phoning”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mfmc/Phoning_pred.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                <div class="carousel-item">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <p><b> “Ground-Truth: Walking a dog”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/Walkingdog_gt.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <p><b> “Prediction: Walking a dog”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/Walkingdog_pred.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                <div class="carousel-item">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <p><b> “Ground-Truth: Walking together”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/WalkingTogether_gt.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <p><b> “Prediction: Walking together”</b></p>
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/mf/WalkingTogether_pred.gif" alt=" Posing" style="width: 750px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+    </section>
+    
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@INPROCEEDINGS{9981877,
+  author={Mascaro, Esteve Valls and Ma, Shuo and Ahn, Hyemin and Lee, Dongheui},
+  booktitle={2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
+  title={Robust Human Motion Forecasting using Transformer-based Model}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={10674-10680},
+  doi={10.1109/IROS47612.2022.9981877}
+}
+}</code></pre>
+    </div>
+</section>
+
+
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+  </body>
+  </html>
