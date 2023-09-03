@@ -199,36 +199,7 @@ The observed skeleton motion sequence X is projected independently for each chan
   </div>
 </div>
 </div>
-</section>
-  
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-
-      <div class="column is-centered has-text-centered">
-            <div class="column is-four-fifths">
-         	<h2 class="title is-3">Qualitative Results</h2> 
- 	</div>  
-         <div class="columns is-centered has-text-centered">
-             <	p><b> “Human Pose Estimation and Forecasting in the wild”</b></p>
-                <div class="column">
-                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
-                        <img src="static/figures/qualitative_video.gif" alt=" Taking Photo" style="width: 750px; height: 750px; position: relative; top: -100px;">
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
-                        <img src="static/figures/qualitative_prediction.gif" alt=" Taking Photo" style="width: 750px; height: 750px; position: relative; top: -100px;">
-                    </div>
-                </div>
-            </div>
-      </div>    
-  </div>
-</div>
-</div>
-</section>
-
+ 
   <section class="section hero is-light">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -322,7 +293,51 @@ The observed skeleton motion sequence X is projected independently for each chan
         </div>
       </div>
     </section>
-    
+
+
+   
+</section>
+  
+  <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Human Motion Forecasting in the wild</h2>
+          <p>
+           We showcase the robustness of our model by adopting our 2CHTR model in real-world videos. For that, we first estimate the human pose using state-of-the-art pose estimators. We use these estimations to predict the subsequent 1 second of poses. Contrary to prior models, we propose to also synthesize the global rotation of the person, which is essential in this case to determine that the person is turning and therefore better detecting the human intention.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+  
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+         <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/qualitative_video.gif" alt=" Taking Photo" style="width: 1000px; height: 750px; position: relative; top: -100px;">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="image-container" style="height: 500px; overflow: hidden; justify-content: center; align-items: center;">
+                        <img src="static/figures/qualitative_prediction.gif" alt=" Taking Photo" style="width: 750px; height: 500px; position: relative; top: -100px;">
+                    </div>
+                </div>
+            </div>
+      </div>    
+  </div>
+</div>
+</div>
+</section>
+
+  
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
